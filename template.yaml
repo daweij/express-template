@@ -4,7 +4,7 @@ Resources:
   ApiProxy:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambdas/apiproxy.handler
+      Handler: dist/lambdas/apiproxy.handler
       CodeUri: .
       Runtime: nodejs12.x
       MemorySize: 256
@@ -15,3 +15,11 @@ Resources:
           Properties:
             Path: /{proxy+}
             Method: ANY
+  Lambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/lambdas/lambda.handler
+      CodeUri: .
+      Runtime: nodejs12.x
+      MemorySize: 256
+      Timeout: 10

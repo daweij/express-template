@@ -7,5 +7,5 @@ import app from "../app";
 dotenv.config();
 const server = awsServerlessExpress.createServer(app);
 
-exports.handler = (event: any, context: Context) =>
+export const handler = (event: any, context: Context) =>
   awsServerlessExpress.proxy(server, event, context);
