@@ -1,9 +1,9 @@
 import * as dotenv from "dotenv";
-import app from "./app";
+import { router } from "./app";
 
 dotenv.config();
 const { PORT = 3000 } = process.env;
 
-app().listen(PORT, () => {
+router.listen(PORT, () => {
   console.log(`listen to http://localhost:${PORT}`);
 });

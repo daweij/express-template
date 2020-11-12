@@ -1,5 +1,4 @@
-import http from "http";
-import express, { Express } from "express";
+import express from "express";
 import { 
   applyMiddleWare,
   bodyRequestParsingHandler,
@@ -20,22 +19,16 @@ process.on("unhandledRejection", (e) => {
   process.exit(1);
 });
 
-const createRouter = (): Express => {
-  const router = express();
+const router = express();
 
-  applyMiddleWare(corsHandler, router);
-  applyMiddleWare(bodyRequestParsingHandler, router);
-  applyMiddleWare(compressionHandler, router);
-  applyMiddleWare(routeHandler, router);
-  applyMiddleWare(errorHandler, router);
+applyMiddleWare(corsHandler, router);
+applyMiddleWare(bodyRequestParsingHandler, router);
+applyMiddleWare(compressionHandler, router);
+applyMiddleWare(routeHandler, router);
+applyMiddleWare(errorHandler, router);
 
-  router.get('/', (req, res) => {
-    return res.status(200).json({ 'test': false });
-  });
+router.get('/', (req, res) => {
+  return res.status(200).json({ 'test': false });
+});
 
-  const server = http.createServer(router);
-
-  return router;
-};
-
-export default createRouter;
+export { router };

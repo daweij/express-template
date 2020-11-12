@@ -1,0 +1,5 @@
+{
+  "aws_bucket": "weijmers-sam-bucket",
+  "aws_stack": "express-template",
+  "build": "npm run build"
+}
