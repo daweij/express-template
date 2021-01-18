@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "_clear": "rimraf ./dist",
-    "_install": "npm install && node install.js",
+    "_install": "npm install",
     "build": "npm run _clear && npm run _install && tsc",
     "start": "ts-node-dev ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
